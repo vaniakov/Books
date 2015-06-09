@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пошук</title>
+</head>
+<body>
+FORM
+{% if error %}
+<ul>
+    {% for er in error %}
+        <li style = "color: red;">{{er}}</li>
+    {%endfor%}
+</ul>
+{% endif%}
+<form action = "/search/" method = "GET">
+    <input type = "text" name = 'q'>
+    <input type = "submit" value = "Знайти">
+</form>
+</body>
+</html>

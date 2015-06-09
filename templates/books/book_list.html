@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Publishers:</title>
+</head>
+<body>
+<ul>
+    {% for book in book_list %}
+    <li>{{book.title}} - {{book.publisher.name}}: {{book.authors}}</li>
+    {%empty %}
+    <li>No books</li>
+    {%endfor%}
+</ul>
+</body>
+</html>

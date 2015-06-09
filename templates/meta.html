@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>meta</title>
+    <style>
+        table, tr, td
+        {
+            border: 1px solid black;
+            border-collapse:collapse;
+        }
+        .fst{
+            min-width: 500px;
+           font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<table>
+    {% for k,v in d %}
+        <tr>
+            <td class = "fst">{{k}} </td>
+            <td>{{v}} </td>
+        </tr>
+    {% endfor %}
+</table>
+<p>request.path: {{path}}</p>
+
+</body>
+</html>
