@@ -19,8 +19,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from mysite.views import hello, current_datetime, hours_ahead, display_meta, my_image, hello_pdf, hello_pdf1
 import books.views as views
-from books.views import PublisherListView, BooksListView,register
-
+from books.views import PublisherListView, BooksListView,register, Test
+from django.conf import settings
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^time/plus/(\d{1,2})/$',hours_ahead),
     url(r'^meta/$', display_meta),
     url(r'^search-form/$', views.search_form),
-    url(r'^search/$', views.search),
+    url(r'^search/$', Test.as_view()),
     url(r'^contact/$', views.contact),
     url(r'^contact/thanks/$', views.thanks),
     url(r'^publisher/$', PublisherListView.as_view()),
@@ -41,4 +41,8 @@ urlpatterns = [
     url(r'^account/login/$', login),
     url(r'^account/loguot/$', logout),
     url(r'^registration/$', register),
+    url(r'^banners/', include('banners.urls')),
 ]
+
+from django.conf.urls.static import  static
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,7 +5,12 @@
     <title>Contact us</title>
 </head>
 <body>
-    <!--{% if form.errors %}-->
+
+{% load banners %}
+{% banner place-slug as banner %}
+{% if banner %}
+    <a href="{% url banner_click banner.id %}?place_slug=place-slug"><img src="{{ banner.file.url }}" alt=""/></a>
+{% endif %}    <!--{% if form.errors %}-->
         <!--<p style = "color:red;">Please solve these errors: {{ form.errors}}</p>-->
     <!--{% endif%}-->
     <form action = "" method = "POST">

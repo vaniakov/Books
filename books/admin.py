@@ -12,7 +12,7 @@ class BookAdmin(admin.ModelAdmin):
     ordering = ('-publication_date', )
     fields = ('title', 'authors', 'publisher', 'publication_date')
     filter_horizontal = ('authors', )
-    #raw_id_fields = ('publisher',)
+    # raw_id_fields = ('publisher',)
 
 # Register your models here.
 admin.site.register(Publisher)
